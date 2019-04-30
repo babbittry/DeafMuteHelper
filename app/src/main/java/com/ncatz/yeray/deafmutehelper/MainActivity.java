@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -35,6 +37,29 @@ public class MainActivity extends AppCompatActivity implements IMvp.View{
     Spinner spOrigenLanguage;
     Main_Presenter presenter;
     protected static final int RESULT_SPEECH = 1;
+
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.about:
+                android.support.v7.app.AlertDialog.Builder dialog = new android.support.v7.app.AlertDialog.Builder(MainActivity.this);
+                dialog.setTitle("关于我们");
+                dialog.setMessage("大学生创新实践项目\n" +
+                        "小组成员：吴宗檀 赵鑫阳 高雨蒙 甘娜 董程逍\n" +
+                        "指导教师：王志斌\n" +
+                        "技术支持：h821021@126.com");
+                dialog.setCancelable(true);
+                dialog.show();
+                break;
+            default:
+        }
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,18 +104,13 @@ public class MainActivity extends AppCompatActivity implements IMvp.View{
                 String selected = spOrigenLanguage.getSelectedItem().toString();
                 Locale languageEnum = null;
                 switch (selected) {
+                    case Idiomas.CHINESE_LANGUAGE:
+                        languageEnum = Idiomas.CHINESE_LOCALE;
+                        break;
                     case Idiomas.ENGLISH_LANGUAGE:
                         languageEnum = Idiomas.ENGLISH_LOCALE;
                         break;
-                    case Idiomas.FRENCH_LANGUAGE:
-                        languageEnum = Idiomas.FRENCH_LOCALE;
-                        break;
-                    case Idiomas.GERMAN_LANGUAGE:
-                        languageEnum = Idiomas.GERMAN_LOCALE;
-                        break;
-                    case Idiomas.SPANISH_LANGUAGE:
-                        languageEnum = Idiomas.SPANISH_LOCALE;
-                        break;
+
                 }
                 if (languageEnum != null)
                     presenter.setLanguage(languageEnum);
@@ -111,21 +131,14 @@ public class MainActivity extends AppCompatActivity implements IMvp.View{
         int position;
         switch (language){
             case "en":
-                locale = Idiomas.ENGLISH_LOCALE;
+                locale = Idiomas.CHINESE_LOCALE;
                 position = 0;
                 break;
             case "fr":
-                locale = Idiomas.FRENCH_LOCALE;
+                locale = Idiomas.ENGLISH_LOCALE;
                 position = 1;
                 break;
-            case "de":
-                locale = Idiomas.GERMAN_LOCALE;
-                position = 2;
-                break;
-            case "es":
-                locale = Idiomas.SPANISH_LOCALE;
-                position = 3;
-                break;
+
             default:
                 locale = Idiomas.ENGLISH_LOCALE;
                 position = 0;

@@ -11,10 +11,6 @@ import java.util.Locale;
 
 import com.ncatz.yeray.deafmutehelper.interfaces.IMvp;
 
-/**
- * Created by yeray697 on 21/11/16.
- */
-
 public class Main_Presenter implements IMvp.Presenter {
 
     IMvp.View view;

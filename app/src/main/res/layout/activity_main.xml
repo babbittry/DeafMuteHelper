@@ -31,33 +31,46 @@
         android:layout_toStartOf="@id/spOrigenLanguage"
         android:layout_marginTop="@dimen/activity_vertical_margin"/>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/etText"
-        android:hint="@string/etText_hint"
-        android:textColor="#000000"
-        android:textColorHint="#bcbcbc"
-        android:layout_below="@+id/spOrigenLanguage"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnToSpeech_text"
-        android:id="@+id/btTextToSpeech"
-        android:layout_below="@+id/etText"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:id="@+id/etText"
+                android:hint="@string/etText_hint"
+                android:textColor="#000000"
+                android:textColorHint="#bcbcbc"
+                android:layout_below="@+id/spOrigenLanguage"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btnToSpeech_text"
+                android:id="@+id/btTextToSpeech"
+                android:layout_below="@+id/etText"
+                android:layout_marginTop="20dp"
+                android:layout_centerHorizontal="true" />
+
+
+
+    <View  android:layout_height="3px"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:background="#FF5722"
+        android:layout_below="@+id/btTextToSpeech"
+        android:layout_marginTop="50dp"/>
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnToText_text"
         android:id="@+id/btSpeechToText"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/btTextToSpeech"
         android:layout_centerHorizontal="true" />
 
@@ -73,5 +86,6 @@
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
+
 </RelativeLayout>
 </ScrollView>
